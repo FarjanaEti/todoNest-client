@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-
+import { FcTodoList } from "react-icons/fc";
 const Navbar = () => {
      const [isPages, setIsPages] = useState(false);                          
      const navOptions=
@@ -45,7 +45,7 @@ const Navbar = () => {
  </>                            
                               
    return (
-  <div className="navbar max-w-screen-xl rounded-3xl bg-transparent fixed z-10 bg-opacity-30  shadow-sm md:px-10">
+  <div className="navbar max-w-screen-xl  bg-transparent fixed z-10 bg-opacity-30   md:px-10">
         {/* Navbar Start */}
         <div className="navbar-start">
             <div className="dropdown">
@@ -59,9 +59,12 @@ const Navbar = () => {
                 </ul>
             </div>
             <Link to={'/'} className="btn btn-ghost normal-case text-xl">
-                
-                <span className=" text-3xl">Earnify</span>
-            </Link>
+  <FcTodoList  className='text-2xl'/>
+  <span className="text-3xl bg-gradient-to-r from-red-500 via-blue-500 to-green-500 bg-[200%] bg-clip-text text-transparent animate-gradient">
+    ToDoNest
+  </span>
+</Link>
+
         </div>
 
         {/* Navbar Center */}
@@ -78,7 +81,7 @@ const Navbar = () => {
                     className="w-10 mr-1 h-10 rounded-full border"
                 />
             {/* ) : null} */}
-            <Link className="btn-ghost mr-2" to={'https://github.com/'}>Join as Developer</Link>
+            {/* <Link className="btn-ghost mr-2" to={'https://github.com/'}>Join as Developer</Link> */}
         </div>
     </div>
   );
