@@ -15,6 +15,9 @@ export default [
         ecmaFeatures: { jsx: true },
         sourceType: 'module',
       },
+      "rules": {
+  "no-unused-vars": "warn"
+}
     },
     plugins: {
       'react-hooks': reactHooks,
