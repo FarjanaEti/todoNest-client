@@ -1,20 +1,38 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { IoIosArrowDown } from "react-icons/io";
 import { Link, NavLink } from 'react-router-dom';
 import { FcTodoList } from "react-icons/fc";
+import { CiLight } from 'react-icons/ci';
+import { MdDarkMode } from 'react-icons/md';
 const Navbar = () => {
-     const [isPages, setIsPages] = useState(false);                          
+     const [isPages, setIsPages] = useState(false);   
+     const [darkMode, setDarkMode] = useState(
+      localStorage.getItem("theme") === "dark"
+    );
+
+    useEffect(() => {
+      if (darkMode) {
+        document.body.classList.add("dark-mode");
+        localStorage.setItem("theme", "dark");
+      } else {
+        document.body.classList.remove("dark-mode");
+        localStorage.setItem("theme", "light");
+      }
+    }, [darkMode]);
+  
+    
      const navOptions=
      <>
      <li><NavLink to="/">Home</NavLink></li>
-     <li><NavLink to="/auth/deals">Deals</NavLink></li>
-     <li className='relative'
+    
+     <li className='relative '
        onMouseEnter={() => setIsPages(true)} 
        onMouseLeave={() => setIsPages(false)}
-     ><a
+     ><a className='flex items-center  justify-center gap-1'
      href="#"
-     onClick={(e) => e.preventDefault()} // **Prevent default navigation**
+     onClick={(e) => e.preventDefault()} 
    >
-     Pages
+     <span>Made For</span> <IoIosArrowDown className='mt-1' />
    </a>
     {isPages && (
    <ul className="absolute z-10 left-0 mt-8 w-48 bg-white shadow-lg rounded-lg">
@@ -37,7 +55,7 @@ const Navbar = () => {
     <li><NavLink to='/category' className={({ isActive }) =>
        isActive ? 'text-green-400 bg-transparent' : 'text-black bg-transparent'
      }
-    >Pages</NavLink></li>   
+    >Made For </NavLink></li>   
      </ul>
          )}
        </li>
@@ -75,13 +93,27 @@ const Navbar = () => {
         {/* Navbar End */}
         <div className="navbar-end">
         {/* {user ? ( */}
+        <button
+      onClick={() => setDarkMode(!darkMode)}
+      style={{
+        padding: "10px",
+        borderRadius: "50%",
+        backgroundColor: darkMode ? "#333" : "#ddd",
+        color: darkMode ? "#fff" : "#000",
+        border: "none",
+        cursor: "pointer",
+       
+      }}
+    >
+      {darkMode ? <MdDarkMode size={24} /> : <CiLight size={24} />}
+    </button>
                 <img
                     src={ "https://picsum.photos/150"}
                     alt="user"
-                    className="w-10 mr-1 h-10 rounded-full border"
+                    className="w-10 ml-2 mr-1 h-10 rounded-full border"
                 />
-            {/* ) : null} */}
-            {/* <Link className="btn-ghost mr-2" to={'https://github.com/'}>Join as Developer</Link> */}
+            {/* ) : <MdDarkMode /> null} */}
+           
         </div>
     </div>
   );
