@@ -1,15 +1,22 @@
 import React from "react";
 import { PiRainbowCloudThin } from "react-icons/pi";
+import lotti1 from '../assets/lotti/stars.json'
+import Lottie from "lottie-react";
 const Features = () => {
   return (
     <section
-      className="md:flex   justify-center items-center py-20 px-12 bg-cover bg-center"
+      className="  justify-center items-center py-12 px-12 bg-cover bg-center"
       style={{
         backgroundImage: "url('https://i.ibb.co/MyJ3FQfD/f-3.jpg')",
         backgroundSize: "cover",
         
       }}
     >
+        <Lottie 
+  className="absolute left-16 w-24" 
+  animationData={lotti1}>
+</Lottie>
+
       <div className="flex justify-between items-stretch max-w-6xl w-full">
         {/* First Quote Section */}
         <div className="text-center px-6">
@@ -58,6 +65,13 @@ const Features = () => {
           </div>
         </div>
       </div>
+      
+      <Lottie 
+  className="absolute right-16 bottom-0 w-24" 
+  animationData={lotti1}>
+</Lottie>
+
+        
     </section>
   );
 };
