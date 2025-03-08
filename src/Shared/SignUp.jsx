@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Swal from 'sweetalert2';
 import lottiAnimaton from '../assets/lotti/signup.json'
 import Lottie from 'lottie-react';
+import { AuthContext } from '../Provider/AuthProvider';
 
 const SignUp = () => {
     const {createUser,handleGoogle}=useContext(AuthContext)                          
