@@ -1,6 +1,7 @@
 import React from "react";
 import img from "../assets/todo-banner.png";
 
+
 const Banner = () => {
   return (
     <div className="flex items-center justify-between mt-7  p-10 rounded-lg ">
@@ -17,6 +18,7 @@ const Banner = () => {
         <button className="mt-6 btn px-6 py-6 bg-[#3A7D44] shadow-2xl text-white rounded-lg text-lg font-semibold  transition">
           Get Started
         </button>
+        
       </div>
 
       {/* Right Side - Image */}

@@ -59,7 +59,7 @@ const Navbar = () => {
      </ul>
          )}
        </li>
-       { <li><a href="/profile">My Profile</a></li>}
+       { <li><a href="/signup">SignUP</a></li>}
  </>                            
                               
    return (
