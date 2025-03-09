@@ -104,7 +104,7 @@ const SignUp = () => {
         <div className="form-control mt-6 gap-3">
           <button className="btn btn-success">Signup
           </button>
-          <button onClick={handleGoogleLogin} className="btn btn-success"><FaGoogle></FaGoogle> Register With Google</button>
+          <button onClick={handleGoogleLogin} className="btn ml-2 btn-success"><FaGoogle></FaGoogle> Register With Google</button>
         </div>
         <p>Already have n account's? <Link className='text-lime-700 underline' to='/login'>Login</Link></p>
       </form>
