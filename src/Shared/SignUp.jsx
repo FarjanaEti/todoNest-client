@@ -7,9 +7,10 @@ import Swal from 'sweetalert2';
 import lottiAnimaton from '../assets/lotti/signup.json'
 import Lottie from 'lottie-react';
 import { AuthContext } from '../Provider/AuthProvider';
+import { updateProfile } from 'firebase/auth';
 
 const SignUp = () => {
-    const {createUser,handleGoogle}=useContext(AuthContext)                          
+    const {createUser,handleGoogle,updateUserProfile}=useContext(AuthContext)                          
    const [error,setError]=useState({});
    const navigate=useNavigate();
 
@@ -35,18 +36,21 @@ const SignUp = () => {
        Swal.fire(passwordError);
        return; 
      }
+    createUser(email, password)
+  .then(() => {
+    return updateUserProfile(name || "", photo || "");
+  }) 
 
-     createUser(email,password)
-        .then(res=>{ 
-             toast.success('Registration successful') 
-             setTimeout(() => {
-              navigate('/login');
-            }, 2000);               
-        })
-        .catch(err=>{
-           console.log(err)    
-           Swal.fire(`Registration failed: ${err.message}`)               
-        })                    
+  .then(() => {
+    toast.success("Registration successful");
+    setTimeout(() => {
+      navigate("/profile");
+    }, 2000);
+  })
+ .catch((err) => {
+      console.log(err);
+      Swal.fire(`Registration failed: ${err.message}`);
+    });                 
 };
 
     const handleGoogleLogin=()=>{

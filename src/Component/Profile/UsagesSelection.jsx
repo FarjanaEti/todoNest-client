@@ -48,7 +48,7 @@ const UsageSelection = () => {
 
         {/* Launch Button */}
         <button
-          className="mt-6 bg-[#3A7D44] text-white py-3 rounded-md text-lg font-semibold w-full hover:bg-red-600 transition"
+          className="mt-6 bg-[#3A7D44] text-white py-3 rounded-md text-lg font-semibold w-full hover:bg-red-400 transition"
         >
           Launch Todoist
         </button>

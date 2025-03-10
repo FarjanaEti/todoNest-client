@@ -4,6 +4,8 @@ import Error from "./Shared/Error";
 import Home from "./Layout/Home";
 import SignUp from "./Shared/SignUp";
 import LogIn from "./Shared/Login";
+import ProfileSetup from "./Component/Profile/ProfileSetUp";
+import UsageSelection from "./Component/Profile/UsagesSelection";
 
 export const router = createBrowserRouter([
   {
@@ -22,6 +24,14 @@ export const router = createBrowserRouter([
       {
         path:'login',
         element:<LogIn></LogIn>
+      },
+      {
+        path:'profile',
+        element:<ProfileSetup></ProfileSetup>
+      },
+      {
+        path:'select',
+        element:<UsageSelection></UsageSelection>
       }
     ]
   },

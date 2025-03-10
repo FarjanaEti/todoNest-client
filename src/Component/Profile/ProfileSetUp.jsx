@@ -8,12 +8,15 @@ import { getAuth } from "firebase/auth";
 const ProfileSetup = () => {
   const auth = getAuth();
   const user = auth.currentUser;
+  console.log(user)
   const [teamUsage, setTeamUsage] = useState(false);
+  const [name, setName] = useState(user?.displayName || "");
+  const [isEditing, setIsEditing] = useState(false);
   const navigate = useNavigate();
 
   const handleContinue = () => {
     // Navigate to the next page after setup
-    navigate("/dashboard");
+    navigate("/select");
   };
 
   return (
@@ -25,7 +28,7 @@ const ProfileSetup = () => {
         {/* Profile Image */}
         <div className="flex items-center space-x-3 mb-4">
           <img
-            src={user?.photoURL || "https://via.placeholder.com/50"}
+            src={user?.photoURL || "https://i.ibb.co.com/Cs7ph5BW/9bf0f160-c5de-4553-a7be-90f3107088b6.jpg"}
             alt="Profile"
             className="w-14 h-14 rounded-full border-2 border-gray-400"
           />
@@ -35,11 +38,13 @@ const ProfileSetup = () => {
         {/* Name Input */}
         <label className="w-full text-gray-600">Your name</label>
         <input
-          type="text"
-          value={user?.displayName || ""}
-          className="w-full p-3 mt-1 border rounded-md focus:ring-2 focus:ring-red-400"
-          readOnly
-        />
+      type="text"
+      value={name}
+      onChange={(e) => setName(e.target.value)}
+      className="w-full p-3 mt-1 border rounded-md focus:ring-2 focus:ring-red-400"
+      readOnly={!isEditing}
+      onClick={() => setIsEditing(true)} 
+      onBlur={() => setIsEditing(false)} ></input>
 
         {/* Team Usage Toggle */}
         <div className="flex items-center justify-between w-full mt-4">
