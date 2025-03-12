@@ -6,6 +6,7 @@ import SignUp from "./Shared/SignUp";
 import LogIn from "./Shared/Login";
 import ProfileSetup from "./Component/Profile/ProfileSetUp";
 import UsageSelection from "./Component/Profile/UsagesSelection";
+import DashboardLayout from "./Component/Dashboard/DashboardLayout";
 
 export const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ export const router = createBrowserRouter([
       {
         path:'select',
         element:<UsageSelection></UsageSelection>
+      },
+      {
+        path:'dashboard',
+        element:<DashboardLayout></DashboardLayout>
       }
     ]
   },

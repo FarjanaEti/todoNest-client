@@ -61,6 +61,7 @@ const Navbar = () => {
        </li>
        { <li><a href="/signup">SignUP</a></li>}
        { <li><a href="/login">LogIn</a></li>}
+       { <li><a href="/dashboard">DashBoard</a></li>}
  </>                            
                               
    return (
